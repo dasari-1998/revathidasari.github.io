@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revathi Dasari — Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #111; line-height: 1.6; }
+.container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+.hero { background: linear-gradient(135deg, #1A5276, #2E86C1); padding: 3rem 2rem; text-align: center; border-radius: 16px; margin-bottom: 2rem; }
+.hero h1 { font-size: 2.4rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+.hero p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 0.25rem; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 1.2rem; }
+.badge { background: rgba(255,255,255,0.15); color: #fff; font-size: 12px; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); }
+.badge.gold { background: rgba(212,172,13,0.3); border-color: #D4AC0D; color: #FAC775; }
+section { margin-bottom: 2rem; background: #fff; border-radius: 16px; padding: 1.5rem; border: 0.5px solid #e0e0e0; }
+.section-title { font-size: 1.1rem; font-weight: 600; color: #1A5276; border-bottom: 2px solid #2E86C1; padding-bottom: 0.5rem; margin-bottom: 1.2rem; }
+.about-card { background: #EBF5FB; border-radius: 12px; padding: 1.25rem; border-left: 4px solid #2E86C1; font-size: 0.95rem; color: #333; line-height: 1.8; }
+.dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width: 600px) { .dual-grid { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } }
+.qual-card { background: #f9f9f9; border: 0.5px solid #e0e0e0; border-radius: 12px; padding: 1rem; }
+.qual-card h3 { font-size: 0.95rem; font-weight: 600; color: #111; margin-bottom: 0.25rem; margin-top: 0.5rem; }
+.qual-card p { font-size: 0.82rem; color: #666; }
+.qual-card .tag { display: inline-block; background: #EBF5FB; color: #1A5276; font-size: 11px; padding: 2px 10px; border-radius: 10px; margin-top: 0.5rem; font-weight: 600; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
+.skill-group { background: #f9f9f9; border: 0.5px solid #e0e0e0; border-radius: 10px; padding: 0.85rem; }
+.skill-group h4 { font-size: 0.78rem; font-weight: 600; color: #2E86C1; margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.skill-tag { display: inline-block; background: #eef0f3; color: #444; font-size: 11px; padding: 3px 8px; border-radius: 6px; margin: 2px; }
+.project-card { background: #f9f9f9; border: 0.5px solid #e0e0e0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+.project-card:last-child { margin-bottom: 0; }
+.proj-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.proj-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.proj-icon.blue { background: #EBF5FB; }
+.proj-icon.green { background: #EAF3DE; }
+.proj-icon.amber { background: #FAEEDA; }
+.project-card h3 { font-size: 0.95rem; font-weight: 600; color: #111; }
+.project-card .org { font-size: 0.8rem; color: #888; }
+.project-card p { font-size: 0.88rem; color: #555; line-height: 1.7; margin-bottom: 0.75rem; }
+.tech-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tech-chip { font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 600; }
+.tech-chip.blue { background: #EBF5FB; color: #1A5276; }
+.tech-chip.green { background: #EAF3DE; color: #27500A; }
+.tech-chip.amber { background: #FAEEDA; color: #633806; }
+.exp-row { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 0.5px solid #eee; }
+.exp-row:last-child { border-bottom: none; }
+.exp-dot { width: 10px; height: 10px; border-radius: 50%; background: #2E86C1; margin-top: 6px; flex-shrink: 0; }
+.exp-content h3 { font-size: 0.95rem; font-weight: 600; color: #111; }
+.exp-content .exp-meta { font-size: 0.82rem; color: #2E86C1; margin-bottom: 0.35rem; font-weight: 500; }
+.exp-content p { font-size: 0.85rem; color: #666; line-height: 1.6; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.contact-item { background: #f4f6f9; border-radius: 10px; padding: 0.85rem; display: flex; align-items: center; gap: 10px; }
+.contact-item i { font-size: 18px; color: #2E86C1; }
+.contact-item span { font-size: 0.88rem; color: #444; }
+.avail-banner { background: #EAF3DE; border: 0.5px solid #97C459; border-radius: 10px; padding: 0.85rem 1rem; text-align: center; font-size: 0.9rem; color: #27500A; margin-top: 1rem; font-weight: 600; }
+.icon-circle { width: 24px; height: 24px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <h1>Revathi Dasari</h1>
+    <p>Accounting &amp; Technology Professional</p>
+    <p>MPA &nbsp;·&nbsp; MCA &nbsp;·&nbsp; CPA Australia (In Progress)</p>
+    <div class="badge-row">
+      <span class="badge">Melbourne, VIC</span>
+      <span class="badge">Full Australian Work Rights</span>
+      <span class="badge">Available Immediately</span>
+      <span class="badge gold">Golden Key Society — Top 15% Globally</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-title">About me</div>
+    <div class="about-card">
+      I am a uniquely dual-qualified professional combining a Master of Professional Accounting (MPA) from CQU Melbourne with a First Class Master of Computer Applications (MCA) — bridging the gap between Finance and Technology in ways most candidates cannot. With hands-on Australian public practice experience at Karvis Tax Accountants, enterprise systems exposure across SAP, Oracle, Xero, and MYOB, and strong data analytics skills in SQL, Tableau, and Python, I bring a rare combination of financial expertise and technical capability to any organisation.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Qualifications</div>
+    <div class="dual-grid">
+      <div class="qual-card">
+        <i class="ti ti-calculator" style="font-size:24px; color:#1A5276;"></i>
+        <h3>Master of Professional Accounting</h3>
+        <p>Central Queensland University, Melbourne · 2023–2025</p>
+        <span class="tag">Golden Key Society</span>
+      </div>
+      <div class="qual-card">
+        <i class="ti ti-cpu" style="font-size:24px; color:#2E86C1;"></i>
+        <h3>Master of Computer Applications</h3>
+        <p>VTU / Dayananda Sagar College, India · 2022–2024</p>
+        <span class="tag">First Class</span>
+      </div>
+      <div class="qual-card">
+        <i class="ti ti-certificate" style="font-size:24px; color:#D4AC0D;"></i>
+        <h3>CPA Australia</h3>
+        <p>Foundation Cleared · Professional Level In Progress</p>
+        <span class="tag">In Progress</span>
+      </div>
+      <div class="qual-card">
+        <i class="ti ti-school" style="font-size:24px; color:#639922;"></i>
+        <h3>Bachelor of Commerce</h3>
+        <p>Krishna University, India · 2015–2018</p>
+        <span class="tag">Completed</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Technical skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Accounting systems</h4>
+        <span class="skill-tag">Xero</span>
+        <span class="skill-tag">MYOB</span>
+        <span class="skill-tag">SAP R12</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">QuickBooks</span>
+      </div>
+      <div class="skill-group">
+        <h4>Data &amp; analytics</h4>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">QlikSense</span>
+        <span class="skill-tag">Excel Advanced</span>
+        <span class="skill-tag">Power BI</span>
+      </div>
+      <div class="skill-group">
+        <h4>Programming</h4>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">HTML/CSS</span>
+      </div>
+      <div class="skill-group">
+        <h4>Finance skills</h4>
+        <span class="skill-tag">BAS/GST</span>
+        <span class="skill-tag">Reconciliation</span>
+        <span class="skill-tag">Accounts Payable</span>
+        <span class="skill-tag">Tax Returns</span>
+        <span class="skill-tag">ATO Compliance</span>
+      </div>
+      <div class="skill-group">
+        <h4>Tech knowledge</h4>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Cloud Computing</span>
+        <span class="skill-tag">Cybersecurity</span>
+        <span class="skill-tag">Big Data</span>
+        <span class="skill-tag">Networking</span>
+      </div>
+      <div class="skill-group">
+        <h4>Business skills</h4>
+        <span class="skill-tag">ERP Systems</span>
+        <span class="skill-tag">Process Improvement</span>
+        <span class="skill-tag">Financial Reporting</span>
+        <span class="skill-tag">Client Relations</span>
+        <span class="skill-tag">Stakeholder Comms</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Projects</div>
+
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-icon blue"><i class="ti ti-world" style="font-size:20px; color:#1A5276;"></i></div>
+        <div>
+          <h3>Web Application — SkillVertex Internship</h3>
+          <div class="org">SkillVertex · Apr–Jun 2023</div>
+        </div>
+      </div>
+      <p>Developed a full-stack web application using Python and Flask as the backend framework. Designed and implemented a MySQL relational database for efficient data storage. Integrated Pandas for structured data processing and analysis. Delivered a scalable, functional backend system from concept to working product.</p>
+      <div class="tech-row">
+        <span class="tech-chip blue">Python</span>
+        <span class="tech-chip blue">Flask</span>
+        <span class="tech-chip blue">MySQL</span>
+        <span class="tech-chip blue">Pandas</span>
+        <span class="tech-chip blue">PyCharm</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-icon green"><i class="ti ti-file-invoice" style="font-size:20px; color:#27500A;"></i></div>
+        <div>
+          <h3>Australian Tax Compliance Practice</h3>
+          <div class="org">Karvis Tax Accountants, Melbourne · Feb 2024–Present</div>
+        </div>
+      </div>
+      <p>Applied cloud accounting systems to prepare BAS, GST, and ATO compliance reports for small business clients across multiple industries. Performed bank reconciliations, ledger reviews, and month-end financial documentation. Prepared individual and company income tax returns.</p>
+      <div class="tech-row">
+        <span class="tech-chip green">Xero</span>
+        <span class="tech-chip green">MYOB</span>
+        <span class="tech-chip green">BAS/GST</span>
+        <span class="tech-chip green">ATO Compliance</span>
+        <span class="tech-chip green">Tax Returns</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-icon amber"><i class="ti ti-chart-bar" style="font-size:20px; color:#633806;"></i></div>
+        <div>
+          <h3>Data Analytics &amp; Reporting</h3>
+          <div class="org">MPA Studies · CQU Melbourne · 2023–2025</div>
+        </div>
+      </div>
+      <p>Applied data analytics tools to financial reporting scenarios throughout MPA coursework. Developed proficiency in SQL for data extraction, Tableau and QlikSense for data visualisation, and advanced Excel for financial modelling and variance analysis.</p>
+      <div class="tech-row">
+        <span class="tech-chip amber">SQL</span>
+        <span class="tech-chip amber">Tableau</span>
+        <span class="tech-chip amber">QlikSense</span>
+        <span class="tech-chip amber">Excel Advanced</span>
+        <span class="tech-chip amber">Financial Modelling</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Experience</div>
+    <div class="exp-row">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Accounting Intern — Karvis Tax Accountants</h3>
+        <div class="exp-meta">Melbourne, VIC · Feb 2024–Present</div>
+        <p>BAS/GST preparation, tax returns, bank reconciliations, accounts payable and receivable, client communication and ATO compliance using Xero and MYOB daily.</p>
+      </div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Office In-Charge — Coles Supermarkets</h3>
+        <div class="exp-meta">Clayton, VIC · 2023–Present</div>
+        <p>Financial reporting, cash reconciliations, team scheduling, and back-office administration across multiple departments.</p>
+      </div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Customer Service &amp; Administration — Australia Post</h3>
+        <div class="exp-meta">Melbourne, VIC · 2025–Present</div>
+        <p>High-volume customer service, administrative operations, data entry, record management and stakeholder communication.</p>
+      </div>
+    </div>
+    <div class="exp-row">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Software Development Intern — SkillVertex</h3>
+        <div class="exp-meta">India · Apr–Jun 2023</div>
+        <p>Full-stack web application development using Python, Flask, and MySQL. Data processing with Pandas in a professional development environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <i class="ti ti-phone"></i>
+        <span>0449 681 813</span>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-mail"></i>
+        <span>Dasarirevathi971@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-map-pin"></i>
+        <span>Clayton, VIC 3168, Melbourne</span>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-briefcase"></i>
+        <span>Full Australian Work Rights</span>
+      </div>
+    </div>
+    <div class="avail-banner">
+      Available immediately &nbsp;·&nbsp; Open to accounting, tech &amp; hybrid roles &nbsp;·&nbsp; Zero notice period
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
